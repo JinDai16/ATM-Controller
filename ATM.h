@@ -13,24 +13,11 @@ private:
   int type; // 1-checking, 2-savings
   int balance;
 public:
-  Account(int ty, int bal): type(ty), balance(bal) {}
-  
-  // get the balance of an account
-  void getBalance(){
-    string confirmation
-  }
-  
-  // withdraw money from an account
-  int getWithdraw()
-  {
-    int withdraw_amount;
-    cout << "Please enter the amount of the withdrawal:" << endl;
-    cin >> withdraw_amount;
-    
-    //
-  }
+  Account(int ty, int bal)
+  void getBalance()
+  void getWithdraw()
+  void getDeposit()
 };
-
 
 class Customer{
 private:
@@ -38,8 +25,11 @@ private:
   string PIN;
   vector<Account> accounts;
 public:
-  Customer(string& un, string pin): username(un), PIN(pin) {}
-  void CreateNewAccount(int tp, 
+  Customer(string& un, string pin)
+  void CreateNewAccount(int tp, int bal)
+  void Withdraw(Account account)
+  void Deposit(Account account)
+  void Transfer(Account ac1, Account ac2);
 };
 
 class ATM{
@@ -48,17 +38,7 @@ private:
 public:
   ATM() {};
   //display the main menu
+  void validatePIN()
   void displayMenu()
-  {
-    int option;
-    cout << "------Main Menu------" << endl;
-    cout << "Please select your account:" << endl;
-    cout <<"\t1. Checking \n\t2. Savings \n\t3. Exit" <<endl;
-    cin >> option;
-    switch(option)
-    {
-      case 1: display
-    }
-  }
-  
+  void displayFunction()  
 };
