@@ -84,5 +84,26 @@ void Customer::Depoist(Account account)
 
 void Customer::Transfer(Account ac1, Account ac2)
 {
+        auto it1 = find(this->accounts.begin(), this->accounts.end(), ac1);
+        auto it2 = find(this->accounts.begin(), this->accounts.end(), ac2);
         
+        //justifying invalid transfer: accounts must exist and of different type
+        if(it1 == accounts.end() || it2 == accounts.end() || it1->type == it2->type)
+        {
+                cout << "Invalid account information, transaction cannot be completed." << endl;
+        }
+        int transfer_amount;
+        int transfer_to = ac2.type; //transfer from ac1 to ac2
+        cout << "Please enter the amount you would like to transfer to your " << AccountType[transfer_to] << "account:" << endl;
+        cin >> transfer_amount;
+        
+        if(transfer_amount <= ac1.balance) // valid transfer
+        {
+                //update the balance of two accounts
+                it1->balance -= transfer_amount;
+                it2->balance += transfer_amount;
+                cout << "$" << transfer_amount << "was deposited into your " << AccountType[transfer_to] << "account" << endl;
+                cout << "Balance in the Account:" << it2->balance << endl;
+        }
 }
+//==========================================================================================
