@@ -14,6 +14,7 @@ private:
   int balance;
 public:
   Account(int ty, int bal)
+  Account operator = (const Account& account)
   void getBalance()
   void getWithdraw()
   void getDeposit()
@@ -25,7 +26,7 @@ private:
   string PIN;
   vector<Account> accounts;
 public:
-  Customer(string& un, string pin)
+  Customer(string& un, string& pin)
   void CreateNewAccount(int tp, int bal)
   void Withdraw(Account account)
   void Deposit(Account account)
@@ -38,7 +39,8 @@ private:
 public:
   ATM() {};
   //display the main menu
-  void validatePIN()
-  void displayMenu()
-  void displayFunction()  
+  void addCustomer(Customer c);
+  bool validatePIN(string pin)
+  void displayMenu(Customer c)
+  void displayFunction(Customer c, int option)  
 };
