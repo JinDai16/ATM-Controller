@@ -107,3 +107,60 @@ void Customer::Transfer(Account ac1, Account ac2)
         }
 }
 //==========================================================================================
+// function to display the main menu
+void ATM::addCustomer(Customer c)
+{
+        this->customers.push_back(c);
+}
+
+// function to validate the PIN of a customer using the ATM
+bool ATM::validatePIN()
+{
+        string input_pin;
+        cout << "Please enter your PIN:" << endl;
+        cin >> input_pin;
+        for(auto customer:this->customers)
+        {
+                if(input_pin == customer.PIN)
+                {
+                        return true;
+                        break;
+                }
+        }
+        return false;
+}
+
+void ATM::displayMenu()
+{
+        int option;
+	cout << "----Main Menu----" <<endl;
+	cout << "\tPlease select your account. " << endl;
+	cout << "\t1. Checkings \n\t2. Savings \n\t3. Exit" << endl;
+	cin >> option;
+        char response;
+	switch(option)
+        {
+		case 1: this->displayFunction(option); // checking account
+			break;
+		case 2: this->displayFunction(option); // savings account
+			break;
+		default:
+			cout << "Would you like to continue (y/n)\n";
+			cin >> response;
+			if(response == 'y' || response == 'Y')
+                        {
+                                this->displayMenu();
+                        }
+                        else if(response == 'n' || response == 'N')
+                        {
+                                cout << "Thank you for banking with us." << endl;
+                                exit(0);
+                        }
+			break;
+	}
+}
+
+void ATM::displayFunction()
+{
+        
+}
